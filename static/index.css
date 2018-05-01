@@ -1,13 +1,38 @@
-.but{background-color:gold;border-radius: 20px; font-size:50px;border:none;padding: 10px;font-family: Chalkboard}
-.but:hover{background-color: darkgoldenrod}
+.but {
+    background-color: gold;
+    border-radius: 20px;
+    font-size: 50px;
+    border: none;
+    padding: 10px;
+    font-family: Chalkboard;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 9px #999;
+}
+
+.but:hover {
+    background-color: darkgoldenrod
+}
+
+.but:active {
+    background-color: darkgoldenrod;
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+}
+
 @font-face {
     font-family: Chalkboard;
     src: url(Chalkboard.ttf);
 }
-h1,h2{font-family:"Chalkboard"}
+
+h1, h2 {
+    font-family: "Chalkboard"
+}
+
 a, u {
     color: black;
     font-family: Chalkboard;
     text-decoration: none;
-    border:none;border-radius: 20px;
+    border: none;
+    border-radius: 20px;
 }

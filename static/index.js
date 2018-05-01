@@ -1,5 +1,5 @@
 function title() {
-    var OriginTitile = document.title, titleTime;
+    let OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function () {
         if (document.hidden) {
             document.title = 'Where are you going?';
@@ -14,10 +14,10 @@ function title() {
 }
 
 function httpGet(theUrl) {
-    var xmlHttp = new XMLHttpRequest();
+    const xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", theUrl, false); // false for synchronous request
     xmlHttp.send(null);
-    return '';
+    return xmlHttp.responseText;
 }
 
 function reset_money() {
