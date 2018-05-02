@@ -28,9 +28,6 @@ def save_num(num):
         print('Saved num {}'.format(num))
         return 'successful'
 
-@app.route('/save/static/<path:path>')
-def send_static_file_save(path):
-    return flask.send_file('static/' + path)
 
 
 if platform.system() == 'Darwin':
