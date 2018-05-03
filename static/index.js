@@ -1,3 +1,4 @@
+'use strict';
 function title() {
     let OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function () {
@@ -30,7 +31,6 @@ function reset_money() {
 }
 
 function add_money() {
-    var h3 = document.getElementById('money');
     var text = h3.innerText;
     var num = parseFloat(text);
     h3.innerText = num + 1;
@@ -38,7 +38,6 @@ function add_money() {
 }
 
 function sub_money() {
-    var h3 = document.getElementById('money');
     var text = h3.innerText;
     var num = parseFloat(text);
     h3.innerText = num - 1;
@@ -46,6 +45,17 @@ function sub_money() {
 }
 
 function get_money() {
-    var h3 = document.getElementById('money');
-    h3.innerText = httpGet('http://leon332157.tk/get');
+    var xhr = new XMLHttpRequest();
+    xhr.timeout = 10000;
+    xhr.open("GET", 'http://idea.leon332157.tk/get', true);
+    xhr.onload = function (event) {
+        var money = parseFloat(xhr.responseText);
+        h3.innerText = money;
+    };
+    xhr.ontimeout = function (event) {
+        alert('Fail to get money number, default to 0');
+        var money = 0;
+        h3.innerText = money;
+    };
+    xhr.send(null)
 }
