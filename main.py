@@ -1,6 +1,7 @@
 import flask
 import json
 import platform
+
 app = flask.Flask(__name__)
 
 
@@ -29,8 +30,12 @@ def save_num(num):
         return 'successful'
 
 
+@app.route('/get')
+def get():
+    return json.load(open('money.json', mode='r'))
+
 
 if platform.system() == 'Darwin':
     app.run(debug=True, host='0.0.0.0')  # ,port=80)
 else:
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=5000)

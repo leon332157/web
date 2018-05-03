@@ -44,3 +44,8 @@ function sub_money() {
     h3.innerText = num - 1;
     httpGet('/save/' + h3.innerText);
 }
+
+function get_money() {
+    var h3 = document.getElementById('money');
+    h3.innerText = httpGet('leon332157.tk:9769/get');
+}
