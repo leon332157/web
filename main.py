@@ -1,8 +1,11 @@
 import flask
 import json
 import platform
+from flask_cors import CORS
 
 app = flask.Flask(__name__)
+
+CORS(app)
 
 
 @app.route('/')
