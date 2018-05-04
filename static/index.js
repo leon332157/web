@@ -23,7 +23,7 @@ function httpGet(theUrl) {
 
 function reset_money() {
     if (confirm('Are you sure you want to reset emoney to 0?')) {
-        httpGet('/save/0');
+        httpGet('http://idea.leon332157.tk/save/0');
         location.reload();
     }
     else {
@@ -34,14 +34,14 @@ function add_money() {
     var text = h3.innerText;
     var num = parseFloat(text);
     h3.innerText = num + 1;
-    httpGet('/save/' + h3.innerText);
+    httpGet('http://idea.leon332157.tk/save/' + h3.innerText);
 }
 
 function sub_money() {
     var text = h3.innerText;
     var num = parseFloat(text);
     h3.innerText = num - 1;
-    httpGet('/save/' + h3.innerText);
+    httpGet('http://idea.leon332157.tk/save/' + h3.innerText);
 }
 
 function get_money() {
