@@ -23,7 +23,7 @@ function httpGet(theUrl) {
 
 function reset_money() {
     if (confirm('Are you sure you want to reset emoney to 0?')) {
-        httpGet('http://data.yatumankan.cf/save/0');
+        httpGet('http://data.yatinmankan.cf/save/0');
         location.reload();
     }
     else {
@@ -34,29 +34,35 @@ function add_money() {
     var text = h3.innerText;
     var num = parseFloat(text);
     h3.innerText = num + 1;
-    httpGet('http://data.yatumankan.cfsave/' + h3.innerText);
+    httpGet('http://data.yatinmankan.cfsave/' + h3.innerText);
 }
 
 function sub_money() {
     var text = h3.innerText;
     var num = parseFloat(text);
     h3.innerText = num - 1;
-    httpGet('http://data.yatumankan.cf/save/' + h3.innerText);
+    httpGet('http://data.yatinmankan.cf/save/' + h3.innerText);
 }
 
 function get_money() {
     var xhr = new XMLHttpRequest();
     xhr.timeout = 10000;
-    xhr.open("GET", 'http://data.yatumankan.cf/get', true);
-    xhr.onload = function (event) {
-        var money = parseFloat(xhr.responseText);
-        h3.innerText = money;
-    };
-    var fail=function (event) {
+    var fail = function (event) {
         alert('Fail to get money number, default to 0');
         var money = 0;
         h3.innerText = money;
     };
-    xhr.ontimeout = fail
+    try {
+        xhr.open("GET", 'http://data.yatinmankan.cf/get', true);
+    }
+    catch (e) {
+        alert('Error' + e);
+        fail();
+    }
+    xhr.onload = function (event) {
+        var money = parseFloat(xhr.responseText);
+        h3.innerText = money;
+    };
+    xhr.ontimeout = fail;
     xhr.send(null)
 }
