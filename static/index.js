@@ -34,7 +34,7 @@ function add_money() {
     var text = h3.innerText;
     var num = parseFloat(text);
     h3.innerText = num + 1;
-    httpGet('http://data.yatinmankan.cfsave/' + h3.innerText);
+    httpGet('http://data.yatinmankan.cf/save/' + h3.innerText);
 }
 
 function sub_money() {
